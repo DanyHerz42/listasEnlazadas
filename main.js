@@ -41,6 +41,21 @@ class Main {
       let busqueda = document.querySelector("#buscar").value;
       lista.buscarUnElemento(busqueda,div)
     });
+    let addPos = document.querySelector("#btnAddPos").addEventListener("click", () => {
+      let posicion = document.querySelector("#posicion").value;
+      posicion = parseInt(posicion);
+      let objProducto = {
+        codigo: document.querySelector("#codigo").value,
+        nombre: document.querySelector("#nombre").value,
+        precio: document.querySelector("#precio").value,
+        cantidad: document.querySelector("#cantidad").value,
+        descripcion: document.querySelector("#descripcion").value,
+        siguiente: null
+      }
+      let newObj = new Articulo(objProducto);
+      lista.insertarEnPosicion(newObj,posicion);
+      lista.imprimirLista(div);
+    });
   }
 }
 let m = new Main();

@@ -68,4 +68,26 @@ export default class Lista {
       temp = temp.siguiente;
     }
   }
+  insertarEnPosicion(objeto, posicion) {
+    console.log("insertando en " + posicion)
+    let temp = this._inicio;
+    let cont = 0;
+    let anterior = null;
+    if(posicion === "1"){
+      console.log("si inicio");
+      let aux = this._inicio;
+      this._inicio = objeto;
+      this._inicio.siguiente = aux;
+      return 0;
+    }
+    while (temp.siguiente) {
+      cont++;
+      if (posicion === cont) {
+        anterior.siguiente = objeto;
+        objeto.siguiente = temp;
+      }
+      anterior = temp;
+      temp = temp.siguiente;
+    }
+  }
 }
